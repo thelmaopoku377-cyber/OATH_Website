@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OATHairs - FAQs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
+    .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+      background: #eee;
+      border-radius: 5px;
+    }
+    .faq-answer {
+      display: none;
+      padding: 10px;
+      margin-top: 5px;
+      border-left: 3px solid #222;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OATHairs FAQs</h1>
+    <p>Your questions answered</p>
+  </header>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">What products does OATHairs offer?</div>
+      <div class="faq-answer">We specialize in premium wigs, hair extensions, and hair care accessories designed to enhance your natural beauty.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do you ship internationally?</div>
+      <div class="faq-answer">Yes, OATHairs ships worldwide. Shipping costs and delivery times vary depending on your location.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I care for my wig?</div>
+      <div class="faq-answer">We recommend gentle washing with sulfate-free shampoo, air drying, and storing on a wig stand to maintain shape and longevity.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I return or exchange a product?</div>
+      <div class="faq-answer">Yes, returns and exchanges are accepted within 14 days of purchase, provided the product is unused and in its original packaging.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How can I contact customer support?</div>
+      <div class="faq-answer">You can reach us via email at support@oathairs.com or call us at +233-XXX-XXXXXX during business hours.</div>
+    </div>
+  </div>
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
