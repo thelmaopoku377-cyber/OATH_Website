@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Grab all essential UI elements upfront
+  // 1. Grab all UI elements
   const modal = document.getElementById("bookingModal");
   const closeModal = document.querySelector(".close-btn");
   const serviceInput = document.getElementById("serviceName");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const formResult = document.getElementById("formResult");
   const submitBtn = document.getElementById("submitBtn");
 
-  // 1. Open modal when clicking any service card or button
+  // 2. Open modal when clicking any service card or button
   const serviceCards = document.querySelectorAll(".card, .service-card, .book-btn, button");
 
   serviceCards.forEach(card => {
@@ -23,25 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. Close modal when clicking 'X'
+  // 3. Close modal when clicking 'X'
   if (closeModal) {
     closeModal.addEventListener("click", () => {
       if (modal) modal.style.display = "none";
     });
   }
 
-  // 3. Close modal when clicking outside of the white box
+  // 4. Close modal when clicking outside of the white modal box
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
       if (modal) modal.style.display = "none";
     }
   });
 
-  // 4. Send form data to Web3Forms
+  // 5. Send form data to Web3Forms & handle green success message
   if (bookingForm) {
     bookingForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Show temporary sending state
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = "Sending...";
@@ -62,25 +63,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
 
         if (data.success) {
+          // Display green success message
           if (formResult) {
-            formResult.style.color = "green";
-            formResult.innerText = "Success! Your booking request has been sent.";
+            formResult.style.color = "#28a745"; // Green
+            formResult.innerText = "✓ Success! Your booking request has been sent.";
           }
           bookingForm.reset();
 
+          // Keep modal open for 3 seconds so client can read the success message
           setTimeout(() => {
             if (modal) modal.style.display = "none";
             if (formResult) formResult.innerText = "";
-          }, 2500);
+          }, 3000);
         } else {
+          // Display red error message
           if (formResult) {
-            formResult.style.color = "red";
+            formResult.style.color = "#dc3545"; // Red
             formResult.innerText = "Something went wrong. Please try again.";
           }
         }
       } catch (error) {
         if (formResult) {
-          formResult.style.color = "red";
+          formResult.style.color = "#dc3545"; // Red
           formResult.innerText = "Network error. Please check your connection.";
         }
       } finally {
