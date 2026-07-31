@@ -138,20 +138,23 @@
     
     
   <form id="bookingForm">
-     <!-- 1. Hidden Web3Forms Access Key -->
-     <input type="hidden" name="access_key" value="2400b7d4-f4a1-4cd9-afb4-d008f48a08b1">
+  <!-- 1. Hidden Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value="2400b7d4-f4a1-4cd9-afb4-d008f48a08b1">
 
-      <label for="serviceName">Selected Style:</label>
-      <input type="text" id="serviceName" readonly>
+  <label for="serviceName">Selected Style:</label>
+  <input type="text" id="serviceName" name="service_name" readonly>
 
-      <label for="clientName">Your Name:</label>
-      <input type="text" id="clientName" placeholder="Enter your full name" required>
+  <label for="clientName">Your Name:</label>
+  <input type="text" id="clientName" name="name" placeholder="Enter your full name" required>
 
-      <label for="clientPhone">Phone Number:</label>
-      <input type="tel" id="clientPhone" placeholder="Enter your phone number" required>
+  <label for="clientPhone">Phone Number:</label>
+  <input type="tel" id="clientPhone" name="phone" placeholder="Enter your phone number" required>
 
-      <button type="submit" class="submit-btn">Confirm Booking</button>
-    </form>
+  <button type="submit" id="submitBtn" class="submit-btn">Confirm Booking</button>
+
+  <!-- Green success message renders here -->
+  <p id="formResult" style="margin-top: 12px; text-align: center; font-weight: bold;"></p>
+</form>
   </div>
 </div>
 
